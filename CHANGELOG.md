@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/ddtdanilo/OpenAI-Document-Analyzer/compare/v1.0.1...v1.0.2) (2025-05-23)
+
+
+### Bug Fixes
+
+* configure semantic-release to start from version 0.0.0 ([b3376fd](https://github.com/ddtdanilo/OpenAI-Document-Analyzer/commit/b3376fd2c2dde6b00290f76380b4e13910cab78e))
+
 ## [1.0.1](https://github.com/ddtdanilo/OpenAI-Document-Analyzer/compare/v1.0.0...v1.0.1) (2025-05-23)
 
 
