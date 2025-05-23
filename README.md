@@ -118,12 +118,16 @@ OpenAI-Document-Analyzer/
 │   └── example_text_to_analyze.txt  # Sample text to analyze
 ├── .github/
 │   └── workflows/
-│       └── tests.yml           # GitHub Actions CI/CD
+│       ├── tests.yml           # Main CI/CD pipeline
+│       ├── coverage-badge.yml  # Auto-generated coverage badge
+│       └── release.yml         # Automated releases
 ├── requirements.txt            # Python dependencies
+├── package.json               # Semantic release configuration
 ├── setup.py                   # Setup script
 ├── test_setup.py              # Installation verification script
 ├── run_tests.py               # Test runner script
 ├── env.example                # Environment template
+├── CHANGELOG.md               # Auto-generated changelog
 └── README.md                  # This file
 ```
 
@@ -237,3 +241,34 @@ Current test coverage includes:
 - Error handling for invalid files
 - PDF text extraction (mocked)
 - Complete document analysis workflow
+
+## Releases
+
+This project uses **semantic versioning** with automated releases:
+
+### Commit Convention
+
+Use conventional commits for automatic version bumping:
+
+```bash
+feat: add new document analysis feature    # → Minor version bump (1.1.0)
+fix: resolve PDF parsing issue            # → Patch version bump (1.0.1)  
+docs: update README                       # → No version bump
+chore: update dependencies                # → No version bump
+
+BREAKING CHANGE: remove deprecated API    # → Major version bump (2.0.0)
+```
+
+### Automatic Release Process
+
+1. **Push to main** → Triggers release workflow
+2. **Analyze commits** → Determines version bump type  
+3. **Generate changelog** → Based on commit messages
+4. **Create release** → Automatic GitHub release with notes
+5. **Update badges** → Coverage and release status
+
+### Release Outputs
+
+- 📋 **CHANGELOG.md** - Automatically generated and maintained
+- 🏷️ **Git tags** - Semantic version tags (v1.0.0, v1.1.0, etc.)
+- 📦 **GitHub Releases** - With auto-generated release notes
