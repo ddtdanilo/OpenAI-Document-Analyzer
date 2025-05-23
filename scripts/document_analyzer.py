@@ -12,6 +12,8 @@ import pypdf
 from openai import OpenAI
 from dotenv import load_dotenv
 
+__version__ = "0.0.1"
+
 
 class DocumentAnalyzer:
     """A class for analyzing documents using OpenAI's chat models."""
@@ -73,8 +75,8 @@ class DocumentAnalyzer:
                 pdf_reader = pypdf.PdfReader(f)
                 text = ""
                 for page in pdf_reader.pages:
-                    text += page.extract_text()
-            return text
+                    text += page.extract_text() + "\n"  # Add newline between pages
+            return text.strip()  # Remove trailing whitespace
         except Exception as e:
             raise ValueError(f"Error reading PDF file: {e}")
     
