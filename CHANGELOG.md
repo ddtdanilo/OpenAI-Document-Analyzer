@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/ddtdanilo/OpenAI-Document-Analyzer/compare/v1.0.0...v1.0.1) (2025-05-23)
+
+
+### Bug Fixes
+
+* improve PDF text extraction with better formatting and version tracking ([acf6649](https://github.com/ddtdanilo/OpenAI-Document-Analyzer/commit/acf6649f9b39a2c92a46ef3af0e201388c8588db))
+
 ## 1.0.0 (2025-05-23)
 
 
