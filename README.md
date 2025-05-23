@@ -3,6 +3,7 @@
 ![Tests](https://github.com/ddtdanilo/OpenAI-Document-Analyzer/workflows/Tests/badge.svg)
 ![Coverage](https://raw.githubusercontent.com/ddtdanilo/OpenAI-Document-Analyzer/main/coverage-badge.svg)
 [![Coverage Status](https://coveralls.io/repos/github/ddtdanilo/OpenAI-Document-Analyzer/badge.svg?branch=main)](https://coveralls.io/github/ddtdanilo/OpenAI-Document-Analyzer?branch=main)
+![Release](https://github.com/ddtdanilo/OpenAI-Document-Analyzer/workflows/Release/badge.svg)
 
 A powerful Python application for analyzing text and PDF files using OpenAI's latest chat completion models. This tool allows you to ask questions about documents using customizable prompts and examples.
 
@@ -218,13 +219,14 @@ pytest tests/test_document_analyzer.py -v
 
 ### Continuous Integration
 
-Tests are automatically run on GitHub Actions for every push and pull request across Python versions 3.8, 3.9, and 3.10. All tests are currently passing ✅
+**🚀 Automated Workflows:**
+- ✅ **Tests** - Run automatically on push/PR across Python 3.8, 3.9, 3.10
+- 📊 **Coverage** - Auto-generated badge + Coveralls integration 
+- 🏷️ **Releases** - Semantic versioning with automatic changelog generation
 
 **Coverage Tracking:**
 - 🏷️ **Auto-generated badge** - Updates automatically on each push
-- 📊 **Coveralls integration** - Detailed coverage reports
-- 💬 **PR comments** - Coverage reports posted automatically on pull requests
-- 🌐 **GitHub Pages** - HTML coverage reports (optional, enable Pages in repo settings)
+- 📊 **Coveralls integration** - Detailed coverage reports and trends
 
 ### Test Coverage
 
