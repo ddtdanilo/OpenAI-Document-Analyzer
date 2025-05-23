@@ -12,7 +12,17 @@
     "preset": "conventionalcommits",
     "branches": ["main"],
     "plugins": [
-      "@semantic-release/commit-analyzer",
+      [
+        "@semantic-release/commit-analyzer",
+        {
+          "releaseRules": [
+            {"type": "feat", "release": "minor"},
+            {"type": "fix", "release": "patch"},
+            {"type": "docs", "release": false},
+            {"type": "chore", "release": false}
+          ]
+        }
+      ],
       "@semantic-release/release-notes-generator",
       [
         "@semantic-release/changelog",
@@ -28,6 +38,8 @@
         }
       ],
       "@semantic-release/github"
-    ]
+    ],
+    "tagFormat": "v${version}",
+    "initialVersion": "0.0.0"
   }
 } 
