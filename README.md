@@ -1,9 +1,10 @@
 # OpenAI Document Analyzer
 
-![Tests](https://github.com/ddtdanilo/OpenAI-Document-Analyzer/workflows/Tests/badge.svg)
-![Coverage](https://raw.githubusercontent.com/ddtdanilo/OpenAI-Document-Analyzer/main/coverage-badge.svg)
-[![Coverage Status](https://coveralls.io/repos/github/ddtdanilo/OpenAI-Document-Analyzer/badge.svg?branch=main)](https://coveralls.io/github/ddtdanilo/OpenAI-Document-Analyzer?branch=main)
-![Release](https://github.com/ddtdanilo/OpenAI-Document-Analyzer/workflows/Release/badge.svg)
+[![Tests](https://github.com/ddtdanilo/OpenAI-Document-Analyzer/workflows/Tests/badge.svg)](https://github.com/ddtdanilo/OpenAI-Document-Analyzer/actions/workflows/tests.yml)
+[![Coverage](https://raw.githubusercontent.com/ddtdanilo/OpenAI-Document-Analyzer/main/coverage-badge.svg)](https://github.com/ddtdanilo/OpenAI-Document-Analyzer/actions/workflows/coverage-badge.yml)
+[![Coveralls](https://coveralls.io/repos/github/ddtdanilo/OpenAI-Document-Analyzer/badge.svg?branch=main)](https://coveralls.io/github/ddtdanilo/OpenAI-Document-Analyzer?branch=main)
+[![Release](https://github.com/ddtdanilo/OpenAI-Document-Analyzer/workflows/Release/badge.svg)](https://github.com/ddtdanilo/OpenAI-Document-Analyzer/actions/workflows/release.yml)
+[![GitHub release](https://img.shields.io/github/v/release/ddtdanilo/OpenAI-Document-Analyzer)](https://github.com/ddtdanilo/OpenAI-Document-Analyzer/releases)
 
 A powerful Python application for analyzing text and PDF files using OpenAI's latest chat completion models. This tool allows you to ask questions about documents using customizable prompts and examples.
 
