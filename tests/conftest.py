@@ -1,7 +1,19 @@
 """Pytest configuration file with common fixtures."""
 import os
+import warnings
 import pytest
 from pathlib import Path
+
+# Configure pytest-asyncio
+pytest_plugins = ("pytest_asyncio",)
+
+
+def pytest_configure(config):
+    """Configure pytest settings."""
+    # Set asyncio mode to auto
+    config.option.asyncio_mode = "auto"
+    # Suppress specific warnings
+    warnings.filterwarnings("ignore", category=pytest.PytestDeprecationWarning)
 
 
 @pytest.fixture

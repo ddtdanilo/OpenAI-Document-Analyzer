@@ -99,15 +99,27 @@ Or switch models interactively during runtime by typing `model` at the prompt.
 ```
 OpenAI-Document-Analyzer/
 ├── scripts/
-│   └── text_analysis.py    # Main application script
+│   ├── __init__.py             # Package initialization
+│   ├── text_analysis.py       # Main application script
+│   └── document_analyzer.py   # DocumentAnalyzer class
+├── tests/
+│   ├── __init__.py             # Tests package initialization
+│   ├── conftest.py             # Pytest configuration and fixtures
+│   ├── test_document_analyzer.py  # Unit tests
+│   └── test_data/              # Test data directory
 ├── examples/
 │   ├── example_prompt.txt      # Sample prompt
 │   ├── example_response.txt    # Sample response
 │   └── example_text_to_analyze.txt  # Sample text to analyze
-├── requirements.txt        # Python dependencies
-├── setup.py               # Setup script
-├── env.example            # Environment template
-└── README.md              # This file
+├── .github/
+│   └── workflows/
+│       └── tests.yml           # GitHub Actions CI/CD
+├── requirements.txt            # Python dependencies
+├── setup.py                   # Setup script
+├── test_setup.py              # Installation verification script
+├── run_tests.py               # Test runner script
+├── env.example                # Environment template
+└── README.md                  # This file
 ```
 
 ## Dependencies
@@ -159,21 +171,57 @@ For issues, questions, or contributions, please visit the [GitHub repository](ht
 
 ## Running Tests
 
-The project includes a comprehensive test suite using pytest. To run the tests:
+The project includes a comprehensive test suite using pytest. Multiple options available:
+
+### Quick Test Run
+
+**If you have virtual environment activated:**
+```bash
+./venv/bin/python3 run_tests.py
+```
+
+**Or using pytest directly:**
+```bash
+pytest tests/ -v
+```
+
+### Manual Test Commands
 
 1. Install test dependencies:
 ```bash
 pip install -r requirements.txt
 ```
 
-2. Run the tests:
+2. Run basic tests:
 ```bash
 pytest tests/
 ```
 
-3. Run tests with coverage report:
+3. Run tests with detailed output:
+```bash
+pytest tests/ -v
+```
+
+4. Run tests with coverage report:
 ```bash
 pytest tests/ --cov=scripts/ --cov-report=term-missing
 ```
 
-The tests are also automatically run on GitHub Actions for every push and pull request.
+5. Run specific test file:
+```bash
+pytest tests/test_document_analyzer.py -v
+```
+
+### Continuous Integration
+
+Tests are automatically run on GitHub Actions for every push and pull request across Python versions 3.8, 3.9, and 3.10.
+
+### Test Coverage
+
+Current test coverage includes:
+- DocumentAnalyzer class initialization
+- Text analysis functionality (mocked)
+- File loading (both .txt and .pdf)
+- Error handling for invalid files
+- PDF text extraction (mocked)
+- Complete document analysis workflow
