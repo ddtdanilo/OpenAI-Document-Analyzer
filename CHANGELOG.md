@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/ddtdanilo/OpenAI-Document-Analyzer/compare/v1.0.2...v1.0.3) (2025-05-23)
+
+
+### Bug Fixes
+
+* clean up duplicate badges and improve badge display in README ([3faf705](https://github.com/ddtdanilo/OpenAI-Document-Analyzer/commit/3faf705beace2d92b27e0eda5a3f9fcffbe37eda))
+
 ## [1.0.2](https://github.com/ddtdanilo/OpenAI-Document-Analyzer/compare/v1.0.1...v1.0.2) (2025-05-23)
 
 
