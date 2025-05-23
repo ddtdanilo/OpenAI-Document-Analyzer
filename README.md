@@ -1,44 +1,179 @@
-# Text Analysis with OpenAI GPT-3.5
+# OpenAI Document Analyzer
 
-This repository contains a Python script for analyzing text using the OpenAI gpt-3.5-turbo language model. The script takes a text or PDF file as input, and allows users to ask questions about the content. If you need documentation from OpenAI of the model, you can find it [here](https://platform.openai.com/docs/guides/chat).
+A powerful Python application for analyzing text and PDF files using OpenAI's latest chat completion models. This tool allows you to ask questions about documents using customizable prompts and examples.
+
+## Features
+
+- 📄 Support for both text (.txt) and PDF (.pdf) files
+- 🤖 Compatible with all OpenAI chat models (GPT-4o, GPT-4o-mini, GPT-4 Turbo, GPT-3.5 Turbo)
+- 🔄 Dynamic model switching during runtime
+- 📝 Customizable prompts and examples for context
+- 🛡️ Robust error handling and input validation
+- 🎯 PEP8 compliant code with type hints
+
+## Requirements
+
+- Python 3.8+
+- OpenAI API key
 
 ## Installation
 
+### Quick Setup
+
 1. Clone the repository:
-
-```al
-git clone https://github.com/ddtdanilo/Text-Analysis-with-OpenAI-GPT-3.5.git
-````
-
-
-2. Install the required packages:
-
-```al
-pip install openai PyPDF2 python-dotenv
+```bash
+git clone https://github.com/ddtdanilo/OpenAI-Document-Analyzer.git
+cd OpenAI-Document-Analyzer
 ```
 
+2. Run the setup script:
+```bash
+python3 setup.py
+```
 
-3. Set up your OpenAI API key by following the instructions in the [OpenAI documentation](https://beta.openai.com/docs/api-reference/authentication).
+This will:
+- Create a virtual environment (optional)
+- Install all dependencies
+- Create a `.env` file from the template
+
+3. Add your OpenAI API key to the `.env` file:
+```bash
+OPENAI_API_KEY=your_api_key_here
+```
+
+### Manual Setup
+
+1. Create a virtual environment:
+```bash
+python3 -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
+
+2. Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+3. Configure environment:
+```bash
+cp env.example .env
+# Edit .env and add your OpenAI API key
+```
 
 ## Usage
 
-1. Load a text by running the script with the file paths as arguments:
+### Basic Usage
 
-```al
-python scripts/text_analysis.py examples/example_prompt.txt examples/example_response.txt examples/example-text_to_analyze.txt
+```bash
+python scripts/text_analysis.py examples/example_prompt.txt examples/example_response.txt examples/example_text_to_analyze.txt
 ```
 
-2. Ask questions about the text by typing them in at the prompt. The script will generate answers using the OpenAI GPT-3 language model.
+### Using Different Models
 
-3. To exit the script, type "exit" at the prompt.
+You can specify the default model in your `.env` file:
+```bash
+OPENAI_MODEL=gpt-4o-mini  # or gpt-4-turbo, gpt-3.5-turbo, etc.
+```
+
+Or switch models interactively during runtime by typing `model` at the prompt.
+
+### Available Commands
+
+- Type your question to analyze the text
+- Type `model` to change the AI model
+- Type `exit` to quit
 
 ## Available Models
 
-The script currently uses the "gpt-3.5-turbo", which is the most powerful.
-## Contributions
+| Model | Description |
+|-------|-------------|
+| gpt-4o | Latest and most capable model (default) |
+| gpt-4o-mini | Smaller, faster, and more affordable GPT-4o |
+| gpt-4-turbo | High performance model with vision capabilities |
+| gpt-4-turbo-preview | Preview version of GPT-4 Turbo |
+| gpt-3.5-turbo | Fast and efficient for most tasks |
+| gpt-3.5-turbo-16k | Extended context window version |
 
-Contributions to this project are welcome. If you find any bugs or have suggestions for new features, please create an issue or submit a pull request.
+## Project Structure
+
+```
+OpenAI-Document-Analyzer/
+├── scripts/
+│   └── text_analysis.py    # Main application script
+├── examples/
+│   ├── example_prompt.txt      # Sample prompt
+│   ├── example_response.txt    # Sample response
+│   └── example_text_to_analyze.txt  # Sample text to analyze
+├── requirements.txt        # Python dependencies
+├── setup.py               # Setup script
+├── env.example            # Environment template
+└── README.md              # This file
+```
+
+## Dependencies
+
+- `openai>=1.0.0` - OpenAI Python client library
+- `pypdf>=3.17.0` - PDF processing library
+- `python-dotenv>=1.0.0` - Environment variable management
+
+## API Reference
+
+### `load_text(filepath: str) -> str`
+Load text content from a file (supports .txt and .pdf formats).
+
+### `ask_questions(prompt: str, example_prompt: str, example_response: str, text_to_analyze: str, model: Optional[str] = None) -> str`
+Generate AI responses based on the provided context and prompt.
+
+## Error Handling
+
+The application includes comprehensive error handling for:
+- Missing or invalid files
+- Unsupported file formats
+- API errors and rate limits
+- Invalid model selections
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
+
+### Development Guidelines
+
+1. Follow PEP8 style guide
+2. Add type hints to all functions
+3. Include docstrings for all modules and functions
+4. Write tests for new features
+5. Update documentation as needed
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- OpenAI for providing the powerful language models
+- Contributors and users of this project
+
+## Support
+
+For issues, questions, or contributions, please visit the [GitHub repository](https://github.com/ddtdanilo/OpenAI-Document-Analyzer).
+
+## Running Tests
+
+The project includes a comprehensive test suite using pytest. To run the tests:
+
+1. Install test dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+2. Run the tests:
+```bash
+pytest tests/
+```
+
+3. Run tests with coverage report:
+```bash
+pytest tests/ --cov=scripts/ --cov-report=term-missing
+```
+
+The tests are also automatically run on GitHub Actions for every push and pull request.
